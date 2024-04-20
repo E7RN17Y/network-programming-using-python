@@ -6,5 +6,7 @@ def remote_machine_info(remotehostname)->str:
 
 
 if __name__ == '__main__':
-    print(remote_machine_info(sys.argv[1]))
-    
+    try:
+        print(remote_machine_info(sys.argv[1]))
+    except socket.error as err_msg:
+        print("%s: %s"%(sys.argv[1],err_msg))
